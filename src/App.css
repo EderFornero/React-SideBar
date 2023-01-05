@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('./images/bgImage.jpg');
+  background-size: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* only sidebar */
+.sidebar {
+  width: 350px;
+  height: calc(100vh - 60px);
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  box-shadow: 0 0 40px -20px black;
+  backdrop-filter: blur(5px);
+  color: white;
+  text-shadow: 1px 1px 0px black;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  transition: all .3s;
+
+  @media (max-width: 400px){
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    border-radius: 0; 
+  }
+}
+
+/*sidebar header*/
+.sidebarHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 30px;
+  position: relative;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  display: table;
+  margin: 0 auto;
+  transition: width .3s, height .3s;
+}
+
+.sidebarHeaderTitle{ 
+  text-align: center;
+  font-size: 20px;
+  white-space: pre;
+  transition: scale .3s;
+}
+
+.sidebarToggle{
+  background-color: white;
+  color: black;
+  width: 30px;
+  height: 30px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: absolute;
+  border-radius: 50px;
+  top: 15px;
+  right: -15px;
+
+  @media (max-width: 600px) {
+    display: none; 
+  }
+
+}
+
+/*sidebar content*/
+
+.sidebarMenu{ 
+   display: flex;
+   flex-direction: column;
+   padding: 0 20px;
+   gap: 5px;
+   transition: padding .3s;
+}
+
+.sidebarMenu a{ 
+  text-decoration: none;
   color: white;
+  font-size: 15px;
+  padding: 2px 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  transition: all .3s;
+  border-radius: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+a .active{ 
+  background-color: rgba(255, 255, 255, .15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a:hover{ 
+  background-color: rgba(255, 255, 255, .15);
+}
+
+svg{ 
+  width: 30px;
+}
+
+span{ 
+  position: relative;
+  bottom: 15px;
+  left: 8px;
+  transition: scale .3s;
+}
+
+i{ 
+  font-size: 13px;
+  transition: scale .3s;
+}
+
+.sidebarFooter{
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  padding-bottom: 30px;
 }
